@@ -55,7 +55,7 @@ lstMoves.append(Move8)
 lstMoves.append(Move9)
 
 for iCount in range(0,3): 
-    move_index = random.randint(len(lstMoves))
+    move_index = random.randrange(len(lstMoves))
     move = lstMoves[move_index]
 
     move.get_info()
@@ -64,4 +64,4 @@ for iCount in range(0,3):
 
     lstMoves.pop(move_index)
 
-input("Press enter to continue...")                         
+input("Press enter to continue...")
