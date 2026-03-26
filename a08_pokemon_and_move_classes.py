@@ -12,7 +12,7 @@ class Move:
         self.high_attack_points = high_attack_points
     # prints all info out
     def get_info(self):
-        print(f"{self.move_name} (Type: {self.elemental_type}): {self.low_attack_points} to {self.high_attack_points} Attack Points")
+        return(f"{self.move_name} (Type: {self.elemental_type}): {self.low_attack_points} to {self.high_attack_points} Attack Points")
     # randomly generates number between low and high attack points
     def generate_attack_value(self):
         attack = random.randrange(self.low_attack_points,self.high_attack_points)
@@ -23,10 +23,10 @@ class Pokemon:
     def __init__(self, name, elemental_type, hit_points):
         self.name = name
         self.elemental_type = elemental_type
-        self.hit_points = self.hit_points
+        self.hit_points = hit_points
     # prints out info
     def get_info(self):
-        print(f"{self.name} - Type: {self.elemental_type} - Hit Points: {self.hit_points}")
+        return(f"{self.name} - Type: {self.elemental_type} - Hit Points: {self.hit_points}")
     # increases hit_poitns by 15 and prints out new messsage
     def heal(self):
         self.hit_points += 15
@@ -40,7 +40,7 @@ Move3 = Move("Slash", "Normal", 10, 30)
 Move4 = Move("Flamethrower", "Fire", 5, 30)
 Move5 = Move("Ember", "Fire", 10, 20)
 Move6 = Move("Water Gun", "Water", 5, 15)
-Move7 = Move("Hydro", "Pump", 20, 25)
+Move7 = Move("Hydro Pump", "Water", 20, 25)
 Move8 = Move("Vine Whip", "Grass", 10, 25)
 Move9 = Move("Solar Beam", "Grass", 18, 27)
 
@@ -55,7 +55,7 @@ lstMoves.append(Move8)
 lstMoves.append(Move9)
 
 for iCount in range(0,3): 
-    move_index = random.randrange(len(lstMoves))
+    move_index = random.randint(len(lstMoves))
     move = lstMoves[move_index]
 
     move.get_info()
@@ -63,3 +63,5 @@ for iCount in range(0,3):
     
 
     lstMoves.pop(move_index)
+
+input("Press enter to continue...")                         
