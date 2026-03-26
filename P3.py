@@ -15,7 +15,7 @@ class Move:
         print(f"{self.move_name} (Type: {self.elemental_type}): {self.low_attack_points} to {self.high_attack_points} Attack Points")
     # randomly generates number between low and high attack points
     def generate_attack_value(self):
-        attack = random.randrange(self.low_attack_points,self.high_attack_points)
+        attack = random.randrange(self.low_attack_points,self.high_attack_points + 1)
         return attack
 
 
@@ -32,3 +32,11 @@ class Pokemon:
         self.hit_points += 15
         print(f"{self.name} has been healed to {self.hit_points} hit points.")
 
+lstMoves = []
+
+for iCount in range(0,3): 
+    move = random.randrange(lstMoves)
+    move.get_info(lstMoves[move -1])
+    print("Generated attack value: ")
+    move.generate_attack_value(lstMoves[move -1])
+    lstMoves.remove(lstMoves[move - 1])
