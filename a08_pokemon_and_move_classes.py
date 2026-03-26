@@ -44,7 +44,15 @@ Move7 = Move("Hydro", "Pump", 20, 25)
 Move8 = Move("Vine Whip", "Grass", 10, 25)
 Move9 = Move("Solar Beam", "Grass", 18, 27)
 
-lstMoves.append(Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Move9)
+lstMoves.append(Move1)
+lstMoves.append(Move2)
+lstMoves.append(Move3)
+lstMoves.append(Move4)
+lstMoves.append(Move5)
+lstMoves.append(Move6)
+lstMoves.append(Move7)
+lstMoves.append(Move8)
+lstMoves.append(Move9)
 
 for iCount in range(0,3): 
     move = random.randrange(lstMoves)
