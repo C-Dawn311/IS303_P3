@@ -59,7 +59,7 @@ for iCount in range(0,3):
     move = lstMoves[move_index]
 
     move.get_info()
-    print("Generated attack value: ")
-    move.generate_attack_value()
+    print(f"Generated attack value: {move.generate_attack_value()}")
+    
 
     lstMoves.pop(move_index)
