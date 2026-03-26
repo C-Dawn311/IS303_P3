@@ -35,8 +35,28 @@ class Pokemon:
 lstMoves = []
 
 for iCount in range(0,3): 
-    move = random.randrange(lstMoves)
+    move = random.choice(lstMoves)
     move.get_info(lstMoves[move -1])
     print("Generated attack value: ")
     move.generate_attack_value(lstMoves[move -1])
     lstMoves.remove(lstMoves[move - 1])
+
+# Create 3 pokemon objects
+bulbasaur = Pokemon("Bulbasaur", "Grass", 60)
+
+charmander = Pokemon("Charmander", "Fire", 55)
+
+squirtle = Pokemon("Squirtle", "Water", 65)
+
+# Print charmander info using get_info()
+charmander.get_info()
+
+# Heal charmander using heal()
+charmander.heal()
+
+# Add pokemon to a list
+lstPokemon = [bulbasaur, charmander, squirtle]
+
+# Loop through list and call get_info() for each
+for pokemon in lstPokemon:
+    pokemon.get_info()
