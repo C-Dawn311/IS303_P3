@@ -47,8 +47,11 @@ Move9 = Move("Solar Beam", "Grass", 18, 27)
 lstMoves.append(Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Move9)
 
 for iCount in range(0,3): 
-    move = random.randrange(lstMoves)
-    move.get_info(lstMoves[move -1])
+    move_index = random.randrange(len(lstMoves))
+    move = lstMoves[move_index]
+
+    move.get_info()
     print("Generated attack value: ")
-    move.generate_attack_value(lstMoves[move -1])
-    lstMoves.remove(lstMoves[move - 1])
+    move.generate_attack_value()
+
+    lstMoves.pop(move_index)
