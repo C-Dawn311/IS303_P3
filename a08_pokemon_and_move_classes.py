@@ -68,3 +68,20 @@ for iCount in range(0,3):
     lstMoves.pop(move_index)
 
 input("Press enter to continue...")
+# Create 3 pokemon objects
+bulbasaur = Pokemon("Bulbasaur", "Grass", 60)
+charmander = Pokemon("Charmander", "Fire", 55)
+squirtle = Pokemon("Squirtle", "Water", 65)
+
+# Print charmander info using get_info()
+charmander.get_info()
+
+# Heal charmander using heal()
+charmander.heal()
+
+# Add pokemon to a list
+lstPokemon = [bulbasaur, charmander, squirtle]
+
+# Loop through list and call get_info() for each
+for pokemon in lstPokemon:
+    pokemon.get_info()
