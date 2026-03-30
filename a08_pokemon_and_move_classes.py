@@ -1,9 +1,14 @@
 # Authors: Courtney Bingham, Anna Pettit, Braden Adams, Ethan Lawson
+# in fulfillment of the requirements for the project a08 due on March 30th, 2026
+
+# Description: A program that simulates a pokemon battle by pulling move objects and generating
+# hit points for them. The user must hit the enter key to then continue and receive a healing message 
+# and information about the pokemon. 
 
 import random
 
-# Classes
-
+# ---------------------------------- CLASSES -------------------------------
+#class that creates move objects
 class Move:
     # Constructor - takes move name, elemental type, and attack point range
     def __init__(self, move_name, elemental_type, low_attack_points, high_attack_points):
@@ -19,7 +24,7 @@ class Move:
         attack = random.randint(self.low_attack_points,self.high_attack_points)
         return attack
 
-
+#class that creates pokemon objects
 class Pokemon:
     # Constructor - takes name, elemental type, and starting hit points
     def __init__(self, name, elemental_type, hit_points):
@@ -29,12 +34,15 @@ class Pokemon:
     # prints out info
     def get_info(self):
         return(f"{self.name} - Type: {self.elemental_type} - Hit Points: {self.hit_points}")
-    # increases hit_poitns by 15 and prints out new messsage
+    # increases hit_points by 15 and prints out new messsage
     def heal(self):
         self.hit_points += 15
         print(f"{self.name} has been healed to {self.hit_points} hit points.")
 
-lstMoves = []
+
+# --------------------------------------------MAIN PROGRAM ------------------------------------
+
+#---------------------MOVE OBJECTS ---------------------------------------------
 # Create 9 Move objects with name, elemental type, and attack point range
 Move1 = Move("Tackle", "Normal", 5, 20)
 Move2 = Move("Quick Attack", "Normal", 6, 25)
@@ -46,42 +54,43 @@ Move7 = Move("Hydro Pump", "Water", 20, 25)
 Move8 = Move("Vine Whip", "Grass", 10, 25)
 Move9 = Move("Solar Beam", "Grass", 18, 27)
 
-lstMoves.append(Move1)
-lstMoves.append(Move2)
-lstMoves.append(Move3)
-lstMoves.append(Move4)
-lstMoves.append(Move5)
-lstMoves.append(Move6)
-lstMoves.append(Move7)
-lstMoves.append(Move8)
-lstMoves.append(Move9)
+#append all moves to the list
+lstMoves = [Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Move9]
+
 
 # Randomly select 3 moves, print their info and attack value, then remove them from the list
 for iCount in range(0,3): 
     move_index = random.randrange(len(lstMoves))
     move = lstMoves[move_index]
 
+    #print info for the object moe
     print(move.get_info())
     print(f"Generated attack value: {move.generate_attack_value()}")
     
-
+    #remove the move object from the list
     lstMoves.pop(move_index)
 
+# user must hit the enter key to continue
 input("Press enter to continue...")
+
+#---------------------------------------POKEMON OBJECTS ----------------------------------
 # Create 3 pokemon objects
 bulbasaur = Pokemon("Bulbasaur", "Grass", 60)
 charmander = Pokemon("Charmander", "Fire", 55)
 squirtle = Pokemon("Squirtle", "Water", 65)
 
 # Print charmander info using get_info()
-charmander.get_info()
+print(charmander.get_info())
 
 # Heal charmander using heal()
 charmander.heal()
+
+# Call get_info again
+print(charmander.get_info())
 
 # Add pokemon to a list
 lstPokemon = [bulbasaur, charmander, squirtle]
 
 # Loop through list and call get_info() for each
 for pokemon in lstPokemon:
-    pokemon.get_info()
+    print(pokemon.get_info())
